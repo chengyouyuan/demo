@@ -1,0 +1,19 @@
+server:
+  port: 1111  #端口号
+spring:
+  profiles:
+    active: dev  #指定编译环境开发
+  application:
+    name: registry-server  #服务名称
+
+eureka:
+  instance:
+    hostname: localhost   #注册中心主机名
+  client:
+    fetch-registry: false  #不需要获取注册中心中注册的服务信息
+    register-with-eureka: false  #不需要将自己当做客户端注册到注册中心
+    serviceUrl:
+      defaultZone: http://localhost:${server.port}/eureka/ #注册中心的地址
+  server:
+    enable-self-preservation: false  #关闭则我保护，默认是true，这会导致不能及时剔除已经关闭了的节点
+    eviction-interval-timer-in-ms: 4000 #设置每隔4秒钟清除已经关闭掉的节点信息

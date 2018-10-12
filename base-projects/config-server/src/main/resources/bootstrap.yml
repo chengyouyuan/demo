@@ -1,0 +1,8 @@
+server:
+  port: 1115
+spring:
+  application:
+    name: config-server
+  profiles:
+    active: dev
+

@@ -1,0 +1,16 @@
+
+spring:
+  cloud:
+    gateway:
+      routes:
+      # service-a  如果请求路劲是以api-service-a开头则路由到service-a服务上
+      - uri: lb://service-a
+        predicates:
+        - Path=/api-service-a/**
+      # service-b 如果请求路劲是以api-service-b开头则路由到service-b服务上
+      - uri: lb://service-b
+        predicates:
+        - Path=/api-service-b/**
+
+test:
+  k1: v1

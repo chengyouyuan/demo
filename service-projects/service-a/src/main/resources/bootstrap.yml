@@ -1,0 +1,36 @@
+server:
+  port: 1117
+spring:
+  application:
+    name: service-a
+  profiles:
+    active: dev
+  cloud:
+    config:
+      discovery:
+        #启用配置服务发现
+        enabled: true
+        #配置中心服务端在eureka的注册名称
+        service-id: config-server
+      #分支名称,这里是本地的文件夹的名称
+      label: service-a
+      #获取配置文件的类型，开发,注意默认会按照 当前应用名+dev的方式去label文件夹下查询对应的数据
+      profile: dev
+feign:
+  hystrix:
+    #开启熔断机制
+    enabled: true
+
+
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+          #这里将线程策略设置为SEMAPHORE
+          strategy: SEMAPHORE
+
+

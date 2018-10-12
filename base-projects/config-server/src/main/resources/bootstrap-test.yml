@@ -1,0 +1,16 @@
+
+spring:
+  profiles:
+    #从本地获取配置文件信息
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          #配置获取本地配置文件的根目录
+          search-locations: classpath:/conf/
+eureka:
+  client:
+    #注册中心地址
+    serviceUrl: http://localhost:1111/eureka/
+

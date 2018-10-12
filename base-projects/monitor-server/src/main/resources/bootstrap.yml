@@ -1,0 +1,15 @@
+server:
+  port: 1113
+spring:
+  application:
+    name: monitor-server
+  profiles:
+    active: dev
+
+turbine:
+  appConfig: service-a,service-b #要监控的服务名，多个用,分割开
+  aggregator:
+    clusterConfig: default   #指定聚合哪些集群，多个使用","分割，默认为default。
+    ##. clusterNameExpression指定集群名称，默认表达式appName；此时：turbine.aggregator.clusterConfig需要配置想要监控的应用名称；2. 当clusterNameExpression: default时，turbine.aggregator.clusterConfig可以不写，因为默认就是default；
+  clusterNameExpression: new String("default")
+

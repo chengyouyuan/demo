@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: gateway-server
+  profiles:
+    active: dev
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: config-server
+      label: gateway-server
+      profile: dev
+
+
+server:
+  port: 1116
+eureka:
+  instance:
+    prefer-ip-address: true
+
+
